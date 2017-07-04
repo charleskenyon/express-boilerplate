@@ -1,0 +1,11 @@
+@import 'base/normalize';
+
+$primary-color: red;
+
+body {
+	background-color: $primary-color;
+}
+
+// critical.scss
+// non-critical.scss - loadCss(async)
+// 14gb for templates, styles, scripts, imgs required above the fold
