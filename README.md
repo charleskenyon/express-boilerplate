@@ -1,4 +1,4 @@
-# ri-progressive-web-app
+# Progressive Web App
 
 npm install nodemon -g
 
