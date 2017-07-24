@@ -77,6 +77,8 @@ module.exports = {
 
   },
 
+  // devtool: 'source-map',
+
   plugins: [
 
     new webpack.DefinePlugin({
@@ -124,7 +126,7 @@ module.exports = {
       minRatio: 0.8
     })
 
-    // add manifest paths to home handlebars.
+    //todo: add manifest paths to home handlebars.
 
   ]
 }

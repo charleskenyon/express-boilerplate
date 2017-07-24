@@ -1,10 +1,13 @@
-import jQuery from "jquery-slim";
-import Inferno from 'inferno';
+// import curry from 'ramda/src/curry';
+// import compose from 'ramda/src/compose';
+import renderPlp from './plp';
+
 import '../styles/main.scss';
 
-const test = 'page';
-const reTest = `${test} working`;
+// document.addEventListener('click', () => {
+//   System.import('./testImport').then((module) => {
+//     console.log(module.default());
+//   })
+// });
 
-window.$ = window.jQuery = jQuery;
-
-$('body').append($('<p>').text(reTest));
+renderPlp();

@@ -8,20 +8,24 @@
         <title>RI Progressive Web App</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="apple-mobile-web-app-capable" content="yes">
 
         <!-- <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
         <!-- Place favicon.ico in the root directory -->
 
         {{#if isDevelopment}}
             <link rel="stylesheet" href="main.css"></link>
+            <script defer src="https://ft-polyfill-service.herokuapp.com/v2/polyfill.min.js?callback=polyfillsAreLoaded"></script>
             <script defer src="/vendor.js"></script> 
             <script defer src="/main.js"></script>
             <script async src="http://localhost:35729/livereload.js"></script>
+            <!-- <link rel="preload" as="script" href="0.js"> -->
         {{else}}
             <link data-main-css rel="stylesheet"></link>
             <script defer data-manifest-js></script> 
             <script defer data-vendor-js></script> 
             <script defer data-main-js></script>
+            <!-- <link rel="preload" as="script" href="chunk.js"> -->
         {{/if}}
 
     </head>
@@ -33,3 +37,11 @@
     </body>
 
 </html>
+
+<!-- Use preload for scripts that are going to be used on the current page but are not needed immediately -->
+<!-- Use prefetch for scripts that are going to be used on pages that the user is likely to navigate to -->
+<!-- Ensure you’re adding a crossorigin attribute when fetching fonts -->
+<!-- <link rel="preload" href="style.css" onload="this.rel=stylesheet"> -->
+<!-- high granularity > monolithic bundles/ -->
+<!-- use HTTP2 Server Push only with Service Workers -->
+<!-- view cache chrome chrome://cache/ -->

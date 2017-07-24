@@ -6,8 +6,10 @@ module.exports = function(duration) {
     const cachedBody = memoryCache.get(key);
 
     if (cachedBody) {
+    	console.log('cached');
       res.send(cachedBody);
     } else {
+    	console.log('not cached');
       res.sendResponse = res.send;
       res.send = (body) => {
         memoryCache.put(key, body, duration * 1000);

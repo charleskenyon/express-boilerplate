@@ -14,6 +14,12 @@ module.exports = {
     	"func-names": "off",
     	"no-use-before-define": "off",
     	"padded-blocks": "off",
-    	"import/no-extraneous-dependencies": "off"
-    }
+    	"import/no-extraneous-dependencies": "off",
+    	"no-mixed-spaces-and-tabs": "off",
+    	"no-tabs": "off"
+    },
+    "globals": {
+	    "window": true,
+	    "document": true
+	  }
 };

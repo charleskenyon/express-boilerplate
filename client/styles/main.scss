@@ -1,6 +1,6 @@
 @import 'base/normalize';
 
-$primary-color: red;
+$primary-color: white;
 
 body {
 	background-color: $primary-color;
@@ -8,4 +8,5 @@ body {
 
 // critical.scss
 // non-critical.scss - loadCss(async)
-// 14gb for templates, styles, scripts, imgs required above the fold
+// initial congestion window (typically 14.6kB compressed)
+// limit size of HTML markup, images, CSS, JavaScript

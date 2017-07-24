@@ -1,2 +1,5 @@
 node_modules
+server/app/public/css
+server/app/public/img
+server/app/public/js
 .DS_Store

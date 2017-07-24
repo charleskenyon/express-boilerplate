@@ -16,12 +16,16 @@ module.exports = {
     filename: '[name].js'
   },
 
+  resolve: {
+    extensions: ['.js', '.jsx']
+  },
+
   module: {
 
     rules: [
 
       {
-        test: /\.js?$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: [
           {
@@ -31,6 +35,8 @@ module.exports = {
                 ['es2015',
                   { modules: false }
                 ],
+                'es2016',
+                'es2017',
                 'react'
               ]
             }
@@ -73,8 +79,6 @@ module.exports = {
     new ExtractTextPlugin('main.css'),
 
     new LiveReloadPlugin()
-
-    // add manifest paths to home handlebars.
 
   ]
 }

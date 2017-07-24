@@ -1,4 +1,5 @@
 const app = require('express')();
+const db = require('./lib/db');
 const middleware = require('./middleware');
 const routes = require('./routes');
 const exphbs = require('express-handlebars');

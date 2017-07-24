@@ -12,6 +12,6 @@ if (isDevelopment) {
 }
 
 middleware.use(express.static(path.resolve(__dirname, '../public')));
-middleware.use(logWorkerRequests);
+middleware.use(cache(60));
 
 module.exports = middleware;
