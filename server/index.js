@@ -1,10 +1,10 @@
-const app = require('./app');
-const http = require('http');
+const app = require('express')();
+const db = require('./lib/db');
+const middleware = require('./middleware');
+const routes = require('./routes');
 
-function server() {
-  http.createServer(app).listen(app.get('port'), () => {
-    console.log(`Express started on http://localhost:${app.get('port')}; press Ctrl-C to terminate.`);
-  });
-}
+require('./config')(app);
+app.use(middleware);
+app.use(routes);
 
-module.exports = server;
+module.exports = app;

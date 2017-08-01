@@ -19,4 +19,13 @@ const searchText = curry(function(query, product) {
 		return matchesQuery;
 });
 
-export { curry, searchText };
+const findIndexOf = function(array, attr, value) {
+	for (let i = 0; i < array.length; i++) {
+    if (array[i][attr] === value) {
+      return i;
+    }
+  }
+  return -1;
+}
+
+export { curry, searchText, findIndexOf };

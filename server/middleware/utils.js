@@ -11,4 +11,4 @@ const setDevelopmentLocals = function(req, res, next) {
   next();
 };
 
-module.exports = {logWorkerRequests, setDevelopmentLocals};
+module.exports = { logWorkerRequests, setDevelopmentLocals };

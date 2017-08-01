@@ -5,7 +5,8 @@ const opts = {
 	server: {
 		socketOptions: { 
 			keepAlive: 1 
-		}
+		},
+		auto_reconnect:true
 	}
 }
 

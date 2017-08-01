@@ -15,7 +15,7 @@ module.exports = {
   },
 
   output: {
-    path: path.resolve(__dirname, 'server/app/public/js'),
+    path: path.resolve(__dirname, 'server/public/js'),
     filename: '[name]-[chunkhash:8].min.js'
   },
 
@@ -88,9 +88,9 @@ module.exports = {
     }),
 
     new CleanWebpackPlugin([
-      path.resolve(__dirname, 'server/app/public/js/*.js'),
-      path.resolve(__dirname, 'server/app/public/css/*.css'),
-      path.resolve(__dirname, 'server/app/public/js/*.gz')
+      path.resolve(__dirname, 'server/public/js/*.js'),
+      path.resolve(__dirname, 'server/public/css/*.css'),
+      path.resolve(__dirname, 'server/public/js/*.gz')
     ]),
 
     new webpack.optimize.CommonsChunkPlugin({

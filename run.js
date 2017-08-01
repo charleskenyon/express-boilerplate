@@ -1,11 +1,14 @@
 const cluster = require('cluster');
-const server = require('./server');
+const http = require('http');
+const app = require('./server');
 
 const workers = process.env.WEB_CONCURRENCY || 1;
 
 if (workers === 1 || !cluster.isMaster) {
 	
-	server();
+	http.createServer(app).listen(app.get('port'), () => {
+    console.log(`Express started on http://localhost:${app.get('port')}; press Ctrl-C to terminate.`);
+  });
 
 } else {
 

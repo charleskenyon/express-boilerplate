@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Search from '../views/Search';
+import { userUpdateQuery } from '../../actions';
 
 const mapStateToProps = function(store) {
 	return {
@@ -11,10 +12,7 @@ const mapStateToProps = function(store) {
 const mapDispatchToProps = function(dispatch) {
 	return {
 		onInputChange(e) {
-			dispatch({
-				type: 'USER_UPDATE_QUERY',
-				query: e.target.value
-			});
+			dispatch(userUpdateQuery(e.target.value));
 		}
 	}
 }
