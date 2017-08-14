@@ -5,6 +5,7 @@ const exphbs = require('express-handlebars');
 const path = require('path');
 
 const MongoStore = connectMongo(session);
+
 const handlebarsConfig = {
   defaultLayout: 'main',
   extname: '.hbs',

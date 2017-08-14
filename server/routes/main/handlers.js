@@ -2,33 +2,39 @@ const React = require('react');
 const { createStore } = require('redux');
 const { Provider } = require('react-redux');
 const { renderToString } = require('react-dom/server');
+const axios = require('axios');
 const Plp = require('../../../client/scripts/plp/components').default;
 const reducers = require('../../../client/scripts/plp/reducers').default;
 const productsViewModel = require('../../view-models/product');
 const { createPreloadedState } = require('../../lib/utils');
 
-const home = async function(req, res) {
-	const productsQuery = await productsViewModel();
-	if (productsQuery.error) res.sendStatus(500, productsQuery.error);
-	const state = createPreloadedState(productsQuery, req.session.basket);
-	const store = createStore(reducers, state);
-	const preloadedState = store.getState();
-	
-	const html = renderToString(
-		<Provider store={store}>
-			<Plp />
-		</Provider>
-	);
+const home = async function(req, res, next) {
+	try {
+		const productsQuery = await productsViewModel();
+		const state = createPreloadedState(productsQuery, req.session.basket);
+		const store = createStore(reducers, state);
+		const preloadedState = JSON.stringify(store.getState());
+		
+		const html = renderToString(
+			<Provider store={store}>
+				<Plp />
+			</Provider>
+		);
 
-	res.set('Link', '</main.css>; rel=preload; as=style');
-  res.render('home', { html: html, preloadedState: JSON.stringify(preloadedState) });
+		res.render('home', { html: html, preloadedState: preloadedState });
+	} catch(err) {
+		return next(err);
+	}
 }
 
 const getProducts = async function(req, res) {
-	const amount = req.params.amount;
-	const productsQuery = await productsViewModel(amount);
-	if (productsQuery.error) res.sendStatus(500, productsQuery.error);
-	res.json(productsQuery);
+	try {
+		const amount = req.params.amount;
+		const productsQuery = await productsViewModel(amount);
+		res.json(productsQuery);
+	} catch(err) {
+		next(err);
+	}
 }
 
 const getBasket = function(req, res) {

@@ -4,10 +4,12 @@ import renderPlp from './plp';
 
 import '../styles/main.scss';
 
-// document.addEventListener('click', () => {
-//   System.import('./testImport').then((module) => {
-//     console.log(module.default());
-//   })
-// });
+document.addEventListener('click', () => {
+  System.import('./testImport').then((module) => {
+    console.log(module.default());
+  })
+});
 
 renderPlp();
+
+// create router.js script that uses System.import() for page specific scripts  

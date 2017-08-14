@@ -1,4 +1,4 @@
-const createPreloadedState = function(products, basket) {
+const createPreloadedState = function(products, basket={ basket: [], total: 0 }) {
 	return {
 		productState: { 
 			products,
@@ -6,7 +6,7 @@ const createPreloadedState = function(products, basket) {
 		},
 		basketState: {
 			...basket,
-			isFetching: false,
+			isFetching: false
 		},
 		searchState: {
 			query: ''

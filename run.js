@@ -31,3 +31,7 @@ function startWorker() {
   const worker = cluster.fork();
   console.log(`CLUSTER: Worker ${worker.id} started`);
 }
+
+// npm i spdy --save
+// server.key, server.crt, server.csr
+
