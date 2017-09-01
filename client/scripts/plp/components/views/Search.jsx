@@ -1,9 +1,9 @@
 import React from 'react';
 import { Debounce } from 'react-throttle';
 
-const Search = ({ onInputChange }) => (
+const Search = ({ userUpdateQuery }) => (
 	<Debounce time="300" handler="onChange">
-		<input type="text" name="search" placeholder="Search.." onChange={onInputChange} />
+		<input type="text" name="search" placeholder="Search.." onChange={(e) => userUpdateQuery(e.target.value)} />
 	</Debounce>
 )
 

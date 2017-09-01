@@ -9,15 +9,7 @@ const mapStateToProps = function(store) {
 	}
 }
 
-const mapDispatchToProps = function(dispatch) {
-	return {
-		onInputChange(e) {
-			dispatch(userUpdateQuery(e.target.value));
-		}
-	}
-}
-
 export default connect(
 	mapStateToProps,
-	mapDispatchToProps
+	{ userUpdateQuery }
 )(Search);

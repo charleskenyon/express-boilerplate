@@ -14,15 +14,7 @@ const mapStateToProps = function(store) {
 	}
 }
 
-const mapDispatchToProps = function(dispatch) {
-	return {
-		onAddToBag(product) {
-			dispatch(addToBag(product));
-		}
-	}
-}
-
 export default connect(
 	mapStateToProps,
-	mapDispatchToProps
+	{ addToBag }
 )(ProductList);
