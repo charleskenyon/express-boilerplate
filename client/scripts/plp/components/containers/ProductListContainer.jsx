@@ -18,3 +18,5 @@ export default connect(
 	mapStateToProps,
 	{ addToBag }
 )(ProductList);
+
+// If an object is passed, each function inside it is assumed to be a Redux action creator. An object with the same function names, but with every action creator wrapped into a dispatch call so they may be invoked directly, will be merged into the component’s props.
