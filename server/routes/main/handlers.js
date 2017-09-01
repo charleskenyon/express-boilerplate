@@ -2,7 +2,6 @@ const React = require('react');
 const { createStore } = require('redux');
 const { Provider } = require('react-redux');
 const { renderToString } = require('react-dom/server');
-const axios = require('axios');
 const Plp = require('../../../client/scripts/plp/components').default;
 const reducers = require('../../../client/scripts/plp/reducers').default;
 const productsViewModel = require('../../view-models/product');
@@ -21,7 +20,7 @@ const home = async function(req, res, next) {
 			</Provider>
 		);
 
-		res.render('home', { html: html, preloadedState: preloadedState });
+		res.render('home', { html, preloadedState });
 	} catch(err) {
 		return next(err);
 	}

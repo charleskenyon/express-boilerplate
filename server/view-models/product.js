@@ -6,10 +6,9 @@ const productsViewModel = async function(amount=100) {
 		const key = `__MONGO_PRODUCTS__${amount}`;
 		const cachedData = memoryCache.get(key);
 		if (cachedData) return JSON.parse(cachedData);
-		let response;
 		const productsQuery = await Product.find().limit(parseInt(amount));
 		
-		response = productsQuery.map(v => {
+		const response = productsQuery.map(v => {
 			return {
 				id: v._id,
 				title: v.title,

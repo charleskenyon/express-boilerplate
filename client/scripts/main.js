@@ -13,3 +13,5 @@ document.addEventListener('click', () => {
 renderPlp();
 
 // create router.js script that uses System.import() for page specific scripts  
+
+// development with node & express - page 160 for subdomain (eg admin.dianawilsonarcana.co.uk)
