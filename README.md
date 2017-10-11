@@ -1,4 +1,4 @@
-# ri-progressive-web-app
+# pwa node boilerplate
 
 npm install nodemon -g
 
